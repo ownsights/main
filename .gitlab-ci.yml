@@ -1,0 +1,20 @@
+stages:
+  - publish
+
+pages:
+  stage: publish
+  image: node:lts-alpine
+  before_script:
+    - cd website
+    - yarn install
+  script:
+    - yarn build
+    - mv dist ../public
+  cache:
+    paths:
+      - ./website/node_modules
+  artifacts:
+    paths:
+      - public
+  when: manual
+
