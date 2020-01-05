@@ -1,0 +1,17 @@
+{
+  "name": "ownsights-main",
+  "version": "0.0.1",
+  "description": "OwnSights main repository",
+  "repository": "git@gitlab.com:ownsights/main.git",
+  "author": "Szymon Nowicki <sznowicki@eskalacja.com>",
+  "license": "Apache-2",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.7.0"
+  }
+}
