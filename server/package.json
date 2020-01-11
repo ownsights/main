@@ -1,0 +1,21 @@
+{
+  "name": "@ownsights/server",
+  "version": "0.0.1",
+  "description": "Privacy first, open source audience analytics server.",
+  "main": "index.js",
+  "repository": "git@gitlab.com:ownsights/main.git",
+  "author": "Szymon Nowicki <sznowicki@eskalacja.com>",
+  "license": "Apache-2",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=13"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.4.1",
+    "tagged-console": "^1.0.0"
+  }
+}
