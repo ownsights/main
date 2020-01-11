@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  ownsights-server:
+    image: ownsights-server
+    container_name: ownsights-server
+    env_file: ./.env
+    build:
+      context: ./server
+      target: install
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "npx nodemon index.js"
+    ports:
+      - "3060:3060"
+    depends_on:
+      - ownsights-mongo
+
+  ownsights-mongo:
+    image: mongo:4.0.14
+    container_name: ownsights-mongo
+    hostname: ownsights-mongo
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet

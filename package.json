@@ -6,6 +6,10 @@
   "author": "Szymon Nowicki <sznowicki@eskalacja.com>",
   "license": "Apache-2",
   "private": true,
+  "scripts": {
+    "dev": "docker-compose up",
+    "stop": "docker-compose down"
+  },
   "devDependencies": {
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
