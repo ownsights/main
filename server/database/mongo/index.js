@@ -17,11 +17,13 @@ const getConnection = async () => {
       throw new Error('Missing MONGO_URL env');
     }
 
-    database = await MongoClient.connect(url, {
+    const connection = await MongoClient.connect(url, {
       useUnifiedTopology: true,
     });
 
-    return await database.db(name);
+    database = await connection.db(name);
+
+    return database;
   } catch (error) {
     logger.error('Error during getting mongo connection.', error);
   }

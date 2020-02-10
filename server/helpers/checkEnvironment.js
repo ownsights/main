@@ -1,5 +1,5 @@
 const makeMongo = require('../database/mongo');
-const Logger = require('../helpers/Logger');
+const Logger = require('./Logger');
 
 const logger = new Logger('checkEnvironment');
 
