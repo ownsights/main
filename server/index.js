@@ -4,8 +4,6 @@ const getServer = require('./server');
 const checkEnv = require('./helpers/checkEnvironment');
 
 const logger = new Logger('Main');
-const versionIndex = require('./controllers/version.index');
-
 
 const preCheck = async (retryNumber = 0) => {
   const result = await checkEnv();
