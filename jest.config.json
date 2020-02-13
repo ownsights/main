@@ -1,0 +1,8 @@
+{
+  "collectCoverageFrom": [
+    "**/*.js",
+    "!**/coverage/**",
+    "!**/dist/**",
+    "!**/.cache/**"
+  ]
+}

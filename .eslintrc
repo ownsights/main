@@ -1,3 +1,7 @@
 {
-  "extends": "airbnb/hooks"
+  "root": true,
+  "extends": [
+    "airbnb",
+    "airbnb/hooks"
+  ]
 }

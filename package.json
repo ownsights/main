@@ -9,8 +9,11 @@
   "scripts": {
     "dev": "docker-compose up",
     "stop": "docker-compose down",
-    "test": "jest",
-    "cover": "jest --coverage"
+    "jest:run": "docker-compose -f docker-compose-jest.yml up",
+    "jest:stop": "docker-compose -f docker-compose-jest.yml down",
+    "jest:test": "docker exec ownsights-jest sh -c 'cd /app && yarn jest'",
+    "jest:test:watch": "docker exec ownsights-jest sh -c 'cd /app && yarn jest --watch'",
+    "jest:cover": "docker exec ownsights-jest sh -c 'cd /app && yarn jest --coverage'"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
@@ -21,15 +24,5 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^25.1.0"
   },
-  "jest": {
-    "setupFiles": [
-      "./jest/setupGlobals.js"
-    ],
-    "clearMocks": true,
-    "collectCoverageFrom": [
-      "**/*.js",
-      "!coverage/**/*.*",
-      "!**/dist/**"
-    ]
-  }
+  "dependencies": {}
 }

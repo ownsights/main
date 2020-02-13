@@ -9,9 +9,9 @@ services:
       context: ./server
       target: install
     volumes:
-      - ./server:/usr/src/app
-      - /usr/src/app/node_modules
-    command: sh -c "npx nodemon index.js"
+      - ./server:/app
+      - /app/node_modules
+    command: sh -c "yarn install && npx nodemon index.js"
     ports:
       - "3060:3060"
     depends_on:
