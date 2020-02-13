@@ -12,7 +12,7 @@
     "jest:run": "docker-compose -f docker-compose-jest.yml up",
     "jest:stop": "docker-compose -f docker-compose-jest.yml down",
     "jest:test": "docker exec ownsights-jest sh -c 'cd /app && yarn jest'",
-    "jest:test:watch": "docker exec ownsights-jest sh -c 'cd /app && yarn jest --watch'",
+    "jest:watch": "docker exec ownsights-jest sh -c 'cd /app && yarn jest --watch'",
     "jest:cover": "docker exec ownsights-jest sh -c 'cd /app && yarn jest --coverage'"
   },
   "devDependencies": {
