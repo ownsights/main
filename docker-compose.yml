@@ -2,16 +2,20 @@ version: '3.7'
 
 services:
   ownsights-server:
-    image: ownsights-server
+    image: node:13-stretch-slim
     container_name: ownsights-server
     env_file: ./.env
-    build:
-      context: ./server
-      target: install
+    command: >
+      sh -c " cd /app &&
+      yarn install &&
+      cd server &&
+      yarn install &&
+      cd .. &&
+      yarn nodemon server/index.js"
     volumes:
-      - ./server:/app
-      - /app/node_modules
-    command: sh -c "yarn install && npx nodemon index.js"
+    - ./:/app
+    - /app/node_modules
+    - /app/server/node_modules
     ports:
       - "3060:3060"
     depends_on:

@@ -5,11 +5,14 @@ const checkEnv = require('./helpers/checkEnvironment');
 
 const logger = new Logger('Main');
 
+const sleep = () => new Promise((resolve) => setTimeout(resolve, 1000));
+
 const preCheck = async (retryNumber = 0) => {
   const result = await checkEnv();
 
   if (result === false) {
     logger.warn('Pre check failed. Retrying in 1 second');
+    await sleep();
     await preCheck(retryNumber + 1);
   }
 
