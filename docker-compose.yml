@@ -14,8 +14,6 @@ services:
       yarn nodemon server/index.js"
     volumes:
     - ./:/app
-    - /app/node_modules
-    - /app/server/node_modules
     ports:
       - "3060:3060"
     depends_on:

@@ -4,15 +4,16 @@ stages:
 
 test:
   stage: test
-  image: node:13-alpine
+  image: docker/compose:1.25.3
   before_script:
-    - yarn install
-    - cd server && yarn install && cd ..
-    - cd website && yarn install && cd ..
+    - yarn start
   script:
     - yarn cover
+  after_script:
+    - yarn stop
   cache:
     paths:
+      - ./node_modules
       - ./website/node_modules
       - ./server/node_modules
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
