@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  ownsights-server:
+    image: node:13-stretch-slim
+    container_name: ownsights-server
+    env_file: ./.env
+    command: >
+      sh -c " cd /app &&
+      yarn install &&
+      cd server &&
+      yarn install &&
+      node index.js"
+    volumes:
+      - ./:/app
+    ports:
+      - "3060:3060"
+    depends_on:
+      - ownsights-mongo
+
+  ownsights-mongo:
+    image: mongo:4.0.14
+    container_name: ownsights-mongo
+    hostname: ownsights-mongo
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
