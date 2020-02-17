@@ -1,0 +1,12 @@
+{
+  "testMatch": [
+    "**/?(*.)(spec|test).js?(x)"
+  ],
+  "collectCoverageFrom": [
+    "**/*.js?(x)",
+    "!**/coverage/**",
+    "!**/dist/**",
+    "!**/.cache/**",
+    "!**/.parcel-cache/**"
+  ]
+}

@@ -16,6 +16,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongodb": "^3.4.1",
+    "supertest": "^4.0.2",
     "tagged-console": "^1.0.0"
-  }
+  },
+  "devDependencies": {}
 }

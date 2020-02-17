@@ -7,10 +7,12 @@
   "license": "Apache-2",
   "private": true,
   "scripts": {
-    "dev": "docker-compose up",
+    "start": "docker-compose up",
     "stop": "docker-compose down",
-    "test": "jest",
-    "cover": "jest --coverage"
+    "test": "docker exec ownsights-server sh -c 'cd /app && yarn test:run'",
+    "watch": "docker exec ownsights-server sh -c 'cd /app && yarn test:run --watch'",
+    "cover": "docker exec ownsights-server sh -c 'cd /app && yarn test:run --coverage'",
+    "test:run": "jest --runInBand"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
@@ -19,17 +21,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
   },
-  "jest": {
-    "setupFiles": [
-      "./jest/setupGlobals.js"
-    ],
-    "clearMocks": true,
-    "collectCoverageFrom": [
-      "**/*.js",
-      "!coverage/**/*.*",
-      "!**/dist/**"
-    ]
-  }
+  "dependencies": {}
 }

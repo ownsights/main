@@ -1,7 +1,9 @@
 const pkg = require('../package');
 
-module.exports = async (req, res) => {
+const getVersion = async (req, res) => {
   res.send({
     version: pkg.version,
   });
-}
+};
+
+module.exports = getVersion;
