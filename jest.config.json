@@ -7,6 +7,7 @@
     "!**/coverage/**",
     "!**/dist/**",
     "!**/.cache/**",
-    "!**/.parcel-cache/**"
+    "!**/.parcel-cache/**",
+    "!test-wait-for-server.js"
   ]
 }
