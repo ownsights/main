@@ -8,6 +8,6 @@
     "!**/dist/**",
     "!**/.cache/**",
     "!**/.parcel-cache/**",
-    "!test-wait-for-server.js"
+    "!**/.ci-helpers/**"
   ]
 }

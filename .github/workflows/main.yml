@@ -12,11 +12,11 @@ jobs:
       with:
         node-version: 13
     - name: Prepare .env
-      run: cp test-sample.env .env
+      run: cp .ci-helpers/test-sample.env .env
     - name: Build containers
       run: docker-compose -f docker-compose-actions.yml up -d
     - name: Wait for containers
-      run: node test-wait-for-server.js
+      run: node .ci-helpers/test-wait-for-server.js
     - name: Cache node_modules
       uses: actions/cache@v1
       with:
