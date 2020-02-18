@@ -1,4 +1,5 @@
 # OwnSights - main repository
+![CI](https://github.com/ownsights/main/workflows/CI/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/ownsights/main/badge.svg?branch=actions-test)](https://coveralls.io/github/ownsights/main?branch=actions-test)
 ## Privacy first telemetry solution.
 OwnSights is a simple telemetry solution that aims for maximum privacy of your audience.
 
