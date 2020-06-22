@@ -1,4 +1,4 @@
-FROM node:13-alpine as install
+FROM node:14-alpine as install
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -10,7 +10,7 @@ CMD yarn install --production
 
 COPY . .
 
-FROM node:13-alpine as run
+FROM node:14-alpine as run
 
 WORKDIR /app
 

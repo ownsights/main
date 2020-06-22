@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 13
+    - name: Use Node.js 14
       uses: actions/setup-node@v1
       with:
-        node-version: 13
+        node-version: 14
     - name: Prepare .env
       run: cp .ci-helpers/test-sample.env .env
     - name: Build containers
