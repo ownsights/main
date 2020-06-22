@@ -8,7 +8,9 @@
   "license": "Apache-2",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "clean": "rm -r frontend_dist & echo '' > /dev/null",
+    "build": "parcel build frontend/index.html --out-dir=frontend_dist"
   },
   "engines": {
     "node": ">=13"
@@ -16,8 +18,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongodb": "^3.4.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "supertest": "^4.0.2",
     "tagged-console": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
 }

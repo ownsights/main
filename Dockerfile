@@ -9,4 +9,8 @@ RUN yarn install
 
 RUN cd server
 
+RUN yarn install
+
+RUN yarn build
+
 CMD yarn nodemon server/index.js
