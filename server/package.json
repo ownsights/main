@@ -10,7 +10,8 @@
   "scripts": {
     "start": "node index.js",
     "clean": "rm -r frontend_dist & echo '' > /dev/null",
-    "build": "parcel build frontend/index.html --out-dir=frontend_dist"
+    "build": "parcel build frontend/index.html --out-dir=frontend_dist",
+    "parcel": "parcel frontend/index.html --out-dir=frontend_dist"
   },
   "engines": {
     "node": ">=13"

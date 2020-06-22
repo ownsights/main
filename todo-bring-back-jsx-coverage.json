@@ -3,12 +3,11 @@
     "**/?(*.)(spec|test).js?(x)"
   ],
   "collectCoverageFrom": [
-    "**/*.js",
+    "**/*.js?(x)",
     "!**/coverage/**",
     "!**/dist/**",
     "!**/.cache/**",
     "!**/.parcel-cache/**",
-    "!**/.ci-helpers/**",
-    "!**/frontend_dist/**"
+    "!**/.ci-helpers/**"
   ]
 }

@@ -3,14 +3,18 @@ FROM node:14-alpine
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY . .
+COPY ./server ./server
+COPY package.json .
+COPY yarn.lock .
+COPY jest.config.json .
+
 
 RUN yarn install
 
-RUN cd server
+WORKDIR /app/server
 
 RUN yarn install
 
-RUN yarn build
+WORKDIR /app
 
-CMD yarn nodemon server/index.js
+CMD yarn concurrently "cd server && yarn run parcel" "nodemon server/index.js"
