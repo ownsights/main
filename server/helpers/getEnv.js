@@ -1,4 +1,4 @@
-const env = process.env;
+const { env } = process;
 
 const getEnv = (name) => {
   const value = env[name];

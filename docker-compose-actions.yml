@@ -2,15 +2,10 @@ version: '3.7'
 
 services:
   ownsights-server:
-    image: node:14-stretch-slim
-    container_name: ownsights-server
+    container_name: ownsights-server-dev
     env_file: ./.env
-    command: >
-      sh -c " cd /app &&
-      yarn install &&
-      cd server &&
-      yarn install &&
-      node index.js"
+    build:
+      context: .
     volumes:
       - ./:/app
     ports:

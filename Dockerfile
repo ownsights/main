@@ -5,7 +5,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN yarn install --production
+RUN yarn install
 
-CMD yarn start
+RUN cd server
 
+CMD yarn nodemon server/index.js
