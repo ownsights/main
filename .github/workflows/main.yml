@@ -14,7 +14,7 @@ jobs:
     - name: Prepare .env
       run: cp .ci-helpers/test-sample.env .env
     - name: Build containers
-      run: docker-compose -f docker-compose-actions.yml up -d
+      run: docker-compose up -d
     - name: Wait for containers
       run: node .ci-helpers/test-wait-for-server.js
     - name: Cache node_modules
@@ -34,4 +34,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Kill containers
-      run: docker-compose -f docker-compose-actions.yml down
+      run: docker-compose down
