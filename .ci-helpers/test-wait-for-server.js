@@ -11,17 +11,21 @@ const tryServer = () => new Promise((resolve, reject) => {
     .on('error', reject);
 });
 
+console.time('Total time');
+
 const loop = async (retry = 0) => {
   if (retry >= TIMEOUT) {
-    console.error(`Server is not after ${TIMEOUT_HUMAN}`);
+    console.error(`Server is not up after ${TIMEOUT_HUMAN}`);
     process.exit(1);
   }
 
   try {
     await tryServer();
     console.log('Server ready');
+    console.timeEnd('Total time');
     process.exit(0);
   } catch (error) {
+    console.log('Server not up, error is', error);
     await sleep();
     await loop(retry + 1);
   }

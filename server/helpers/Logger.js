@@ -20,6 +20,10 @@ class Logger {
   error(...args) {
     this.doLog('error', ...args);
   }
+
+  debug(...args) {
+    this.doLog('log', ...args);
+  }
 }
 
 module.exports = Logger;

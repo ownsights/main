@@ -7,26 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 13
+    - name: Use Node.js 14
       uses: actions/setup-node@v1
       with:
-        node-version: 13
+        node-version: 14
     - name: Prepare .env
       run: cp .ci-helpers/test-sample.env .env
     - name: Build containers
-      run: docker-compose -f docker-compose-actions.yml up -d
+      run: docker-compose up -d --build
     - name: Wait for containers
       run: node .ci-helpers/test-wait-for-server.js
-    - name: Cache node_modules
-      uses: actions/cache@v1
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node_modules
-    - name: Cache server/node_modules
-      uses: actions/cache@v1
-      with:
-        path: server/node_modules
-        key: ${{ runner.os }}-server-node_modules
     - name: Test
       run: yarn cover
     - name: Coveralls
@@ -34,4 +24,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Kill containers
-      run: docker-compose -f docker-compose-actions.yml down
+      run: docker-compose down
