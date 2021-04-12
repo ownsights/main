@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: dev.Dockerfile
     command: >
-      sh -c "cd server && yarn nodemon index.js"
+      sh -c "cd server && yarn watch"
     volumes:
       - ./:/app
     ports:
