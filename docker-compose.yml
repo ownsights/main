@@ -13,7 +13,7 @@ services:
     volumes:
       - ./:/app
     ports:
-      - "3060:3060"
+      - 3060:3060
     depends_on:
       - ownsights-mongo
 

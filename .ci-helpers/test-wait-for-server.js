@@ -1,8 +1,8 @@
 const http = require('http');
 
-const TIMEOUT = 120;
+const TIMEOUT = 60;
 const INTERVAL = 1000;
-const TIMEOUT_HUMAN = 'two minutes';
+const TIMEOUT_HUMAN = 'one minute';
 
 const sleep = () => new Promise((resolve) => setTimeout(resolve, INTERVAL));
 
