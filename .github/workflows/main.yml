@@ -17,16 +17,6 @@ jobs:
       run: docker-compose up --build
     - name: Wait for containers
       run: node .ci-helpers/test-wait-for-server.js
-    - name: Cache node_modules
-      uses: actions/cache@v1
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node_modules
-    - name: Cache server/node_modules
-      uses: actions/cache@v1
-      with:
-        path: server/node_modules
-        key: ${{ runner.os }}-server-node_modules
     - name: Test
       run: yarn cover
     - name: Coveralls
