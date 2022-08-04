@@ -2,25 +2,24 @@ version: '3.7'
 
 services:
   ownsights-server:
-    image: node:13-stretch-slim
     container_name: ownsights-server
     env_file: ./.env
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
     command: >
-      sh -c " cd /app &&
-      yarn install &&
-      cd server &&
-      yarn install &&
-      cd .. &&
-      yarn nodemon server/index.js"
+      sh -c "cd server && yarn watch"
     volumes:
-    - ./:/app
+      - ./:/app
+      - node_modules:/app/node_modules
+      - server_node_modules:/app/server/node_modules
     ports:
-      - "3060:3060"
+      - 3060:3060
     depends_on:
       - ownsights-mongo
 
   ownsights-mongo:
-    image: mongo:4.0.14
+    image: mongo:4
     container_name: ownsights-mongo
     hostname: ownsights-mongo
     environment:
@@ -28,4 +27,7 @@ services:
       - MONGO_LOG_DIR=/dev/null
     ports:
       - 27017:27017
-    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    command: mongod --logpath=/dev/null # --quiet
+volumes:
+  node_modules:
+  server_node_modules:

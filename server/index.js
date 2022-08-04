@@ -7,10 +7,15 @@ const logger = new Logger('Main');
 
 const sleep = () => new Promise((resolve) => setTimeout(resolve, 1000));
 
+const MAX_RETRIES = 60;
+
 const preCheck = async (retryNumber = 0) => {
   const result = await checkEnv();
 
   if (result === false) {
+    if (retryNumber >= MAX_RETRIES) {
+      throw new Error(`Database unreachable, aborting after ${MAX_RETRIES} retries.`);
+    }
     logger.warn('Pre check failed. Retrying in 1 second');
     await sleep();
     await preCheck(retryNumber + 1);
