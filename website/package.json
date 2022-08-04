@@ -2,7 +2,6 @@
   "name": "ownsights-website",
   "version": "1.0.0",
   "description": "OwnSights.com website",
-  "main": "index.js",
   "license": "Apache-2",
   "private": true,
   "scripts": {
@@ -13,7 +12,8 @@
     "@eskalacja/as-sass": "^5.0.0"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5",
-    "sass": "^1.32.8"
+    "@parcel/transformer-sass": "2.7.0",
+    "parcel": "^2.7.0",
+    "sass": "^1.54.2"
   }
 }
